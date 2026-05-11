@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ملف أعمال — الفارس الخصيبي</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Cairo',sans-serif;background:#0a0a0f;color:#f0f0f0;overflow-x:hidden;}
+:root{--g:#00e676;--g2:#69f0ae;--bg:#0a0a0f;--bg2:#111118;--card:#16161f;--muted:#7a7a9a;--border:rgba(0,230,118,0.15);}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:999;background:rgba(10,10,15,0.97);border-bottom:1px solid var(--border);height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;}
+.nlogo{font-family:'Amiri',serif;font-size:16px;color:var(--g);white-space:nowrap;}
+.nlinks{display:flex;gap:2px;overflow-x:auto;}
+.nlinks::-webkit-scrollbar{display:none;}
+.nlinks a{color:var(--muted);text-decoration:none;font-size:11px;font-weight:700;padding:5px 10px;border-radius:14px;white-space:nowrap;transition:all 0.2s;}
+.nlinks a:hover,.nlinks a.on{color:var(--g);background:rgba(0,230,118,0.1);}
+
+/* HERO */
+#hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:72px 20px 40px;position:relative;overflow:hidden;}
+#hero::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(0,230,118,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,230,118,0.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;}
+.glow{position:absolute;top:-10%;left:50%;transform:translateX(-50%);width:500px;height:500px;background:radial-gradient(circle,rgba(0,230,118,0.12) 0%,transparent 65%);pointer-events:none;animation:gp 4s ease-in-out infinite;}
+@keyframes gp{0%,100%{opacity:.5;}50%{opacity:1;}}
+.av{width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,#16161f,#111118);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:56px;margin:0 auto 22px;position:relative;box-shadow:0 0 40px rgba(0,230,118,0.15);}
+.av::after{content:'';position:absolute;inset:-8px;border-radius:50%;border:1px dashed rgba(0,230,118,0.2);animation:sp 18s linear infinite;}
+@keyframes sp{to{transform:rotate(360deg);}}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(0,230,118,0.08);border:1px solid var(--border);padding:5px 14px;border-radius:14px;font-size:11px;color:var(--g);letter-spacing:2px;font-weight:700;margin-bottom:18px;}
+.dot{width:6px;height:6px;background:var(--g);border-radius:50%;animation:bl 1.4s infinite;}
+@keyframes bl{0%,100%{opacity:1;}50%{opacity:0;}}
+h1.name{font-family:'Amiri',serif;font-size:clamp(42px,11vw,80px);line-height:1.05;color:#fff;margin-bottom:10px;}
+h1.name span{color:var(--g);}
+.sub{font-size:14px;color:var(--muted);line-height:1.9;max-width:340px;margin:0 auto 30px;}
+.btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:36px;}
+.bp{background:var(--g);color:#0a0a0f;padding:12px 26px;font-family:'Cairo',sans-serif;font-weight:700;font-size:14px;border:none;border-radius:4px;text-decoration:none;display:inline-block;transition:all 0.2s;cursor:pointer;}
+.bp:hover{background:var(--g2);transform:translateY(-2px);}
+.bo{background:transparent;color:var(--g);padding:12px 26px;font-family:'Cairo',sans-serif;font-weight:700;font-size:14px;border:1px solid var(--g);border-radius:4px;text-decoration:none;display:inline-block;transition:all 0.2s;}
+.bo:hover{background:rgba(0,230,118,0.08);}
+.stats{display:flex;justify-content:center;gap:32px;border-top:1px solid var(--border);padding-top:28px;width:100%;}
+.sn{font-size:28px;font-weight:900;color:var(--g);line-height:1;}
+.sl{font-size:11px;color:var(--muted);letter-spacing:1px;margin-top:4px;}
+
+/* SECTIONS */
+section{padding:70px 20px;}
+.tag{display:block;color:var(--g);font-size:11px;font-weight:700;letter-spacing:3px;margin-bottom:10px;}
+.stitle{font-family:'Amiri',serif;font-size:clamp(26px,7vw,40px);color:#fff;margin-bottom:14px;line-height:1.2;}
+.sdesc{color:var(--muted);font-size:14px;line-height:1.9;margin-bottom:36px;}
+.dl{width:36px;height:2px;background:var(--g);margin-bottom:32px;}
+
+/* ABOUT */
+#about{background:var(--bg2);}
+.atext p{color:var(--muted);font-size:14px;line-height:2;margin-bottom:14px;}
+.ilist{display:flex;flex-direction:column;gap:10px;margin-top:24px;}
+.irow{display:flex;align-items:center;gap:12px;padding:11px 14px;background:var(--card);border:1px solid var(--border);border-radius:6px;}
+.ic{font-size:16px;min-width:22px;}
+.il{color:var(--muted);font-size:11px;}
+.iv{color:#fff;font-size:13px;font-weight:600;}
+
+/* SKILLS */
+#skills{background:var(--bg2);}
+.sgrid{display:grid;grid-template-columns:1fr;gap:14px;}
+@media(min-width:500px){.sgrid{grid-template-columns:1fr 1fr;}}
+@media(min-width:768px){.sgrid{grid-template-columns:repeat(3,1fr);}}
+.sc{background:var(--card);border:1px solid var(--border);padding:22px;border-radius:8px;transition:all 0.3s;position:relative;overflow:hidden;}
+.sc::before{content:'';position:absolute;top:0;right:0;width:0;height:2px;background:var(--g);transition:width 0.4s;}
+.sc:hover{border-color:rgba(0,230,118,0.4);transform:translateY(-3px);}
+.sc:hover::before{width:100%;}
+.si{font-size:32px;margin-bottom:10px;display:block;}
+.sn2{color:#fff;font-size:15px;font-weight:700;margin-bottom:6px;}
+.sd{color:var(--muted);font-size:12px;line-height:1.7;margin-bottom:14px;}
+.sp{color:var(--g);font-size:12px;font-weight:700;margin-bottom:5px;}
+.sbg{height:3px;background:rgba(255,255,255,0.06);border-radius:2px;overflow:hidden;}
+.sb{height:100%;background:linear-gradient(90deg,var(--g),var(--g2));border-radius:2px;}
+
+/* PROJECTS */
+#projects{background:var(--bg);}
+.pgrid{display:grid;grid-template-columns:1fr;gap:16px;}
+@media(min-width:500px){.pgrid{grid-template-columns:1fr 1fr;}}
+@media(min-width:768px){.pgrid{grid-template-columns:repeat(3,1fr);}}
+.pc{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all 0.3s;}
+.pc:hover{transform:translateY(-4px);border-color:rgba(0,230,118,0.4);box-shadow:0 0 30px rgba(0,230,118,0.1);}
+.pt{height:130px;display:flex;align-items:center;justify-content:center;font-size:50px;}
+.pb{padding:18px;}
+.ptag{font-size:10px;color:var(--g);font-weight:700;letter-spacing:2px;margin-bottom:6px;}
+.ptitle{color:#fff;font-size:14px;font-weight:700;margin-bottom:7px;line-height:1.4;}
+.pdesc{color:var(--muted);font-size:12px;line-height:1.7;margin-bottom:12px;}
+.techs{display:flex;gap:5px;flex-wrap:wrap;}
+.tech{background:rgba(0,230,118,0.08);border:1px solid var(--border);color:var(--g);font-size:10px;font-weight:700;padding:2px 9px;border-radius:10px;}
+
+/* CONTACT */
+#contact{background:var(--bg2);}
+.clist{display:flex;flex-direction:column;gap:12px;margin-bottom:28px;}
+.cc{background:var(--card);border:1px solid var(--border);padding:15px;border-radius:8px;display:flex;gap:12px;align-items:center;transition:border-color 0.2s;}
+.cc:hover{border-color:rgba(0,230,118,0.4);}
+.cci{font-size:20px;}
+.cc h4{color:var(--g);font-size:10px;letter-spacing:1px;margin-bottom:2px;}
+.cc p{color:#fff;font-size:13px;}
+.cc a{color:var(--g);text-decoration:none;font-size:13px;}
+.cform{display:flex;flex-direction:column;gap:12px;}
+.cform h3{font-family:'Amiri',serif;font-size:20px;color:#fff;margin-bottom:4px;}
+.fg{display:flex;flex-direction:column;gap:5px;}
+.fg label{color:var(--muted);font-size:11px;font-weight:600;letter-spacing:1px;}
+.fg input,.fg textarea{background:var(--card);border:1px solid var(--border);color:#fff;font-family:'Cairo',sans-serif;font-size:14px;padding:11px 14px;border-radius:6px;outline:none;transition:border-color 0.2s;width:100%;}
+.fg input:focus,.fg textarea:focus{border-color:var(--g);}
+.fg textarea{height:110px;resize:vertical;}
+.fsuc{display:none;background:rgba(0,230,118,0.08);border:1px solid var(--g);color:var(--g);padding:12px;border-radius:6px;text-align:center;font-size:13px;}
+
+/* FOOTER */
+footer{background:var(--bg);border-top:1px solid var(--border);padding:24px 20px;text-align:center;}
+.flogo{font-family:'Amiri',serif;font-size:17px;color:var(--g);margin-bottom:8px;}
+footer p{color:var(--muted);font-size:12px;line-height:1.8;margin-bottom:14px;}
+.socs{display:flex;gap:10px;justify-content:center;}
+.socs a{width:36px;height:36px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:16px;text-decoration:none;transition:all 0.2s;}
+.socs a:hover{border-color:var(--g);background:rgba(0,230,118,0.08);}
+
+/* FADE */
+.fi{opacity:0;transform:translateY(22px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fi.on{opacity:1;transform:translateY(0);}
+
+@media print{*{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nlogo">الفارس الخصيبي</div>
+  <div class="nlinks">
+    <a href="#hero" class="on">الرئيسية</a>
+    <a href="#about">عني</a>
+    <a href="#skills">المهارات</a>
+    <a href="#projects">المشاريع</a>
+    <a href="#contact">تواصل</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="glow"></div>
+  <div class="av">👨‍💻</div>
+  <div class="badge"><span class="dot"></span>ملف أعمال — المشروع السادس</div>
+  <h1 class="name">الفارس بن نصر<br><span>الخصيبي</span></h1>
+  <p class="sub">طالب في الصف الحادي عشر — مدرسة سالم الصايغي بمسقط.<br>مصمم ومخرج شغوف بتقنية المعلومات وتطوير الويب.</p>
+  <div class="btns">
+    <a href="#projects" class="bp">شاهد المشاريع</a>
+    <a href="#contact" class="bo">تواصل معي</a>
+  </div>
+  <div class="stats">
+    <div><div class="sn">6</div><div class="sl">مشاريع</div></div>
+    <div><div class="sn">11</div><div class="sl">الصف</div></div>
+    <div><div class="sn">2026</div><div class="sl">السنة</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="fi">
+  <span class="tag">// من أنا</span>
+  <div class="stitle">نبذة عني</div>
+  <div class="dl"></div>
+  <div class="atext">
+    <p>أنا الفارس بن نصر الخصيبي، طالب في الصف الحادي عشر بمدرسة سالم الصايغي للتعليم ما بعد الأساسي بالمعبيلة الجنوبية، مسقط، سلطنة عمان.</p>
+    <p>أهتم بمجال تطوير مواقع الويب والتصميم الرقمي باستخدام HTML وCSS وJavaScript. أسعى دائماً إلى تقديم أعمال إبداعية تجمع بين الجمال والوظيفة.</p>
+    <p>أشارك في الأنشطة المدرسية المتنوعة وأحب الاطلاع على أحدث توجهات التصميم والتقنية.</p>
+  </div>
+  <div class="ilist">
+    <div class="irow"><span class="ic">👤</span><div><div class="il">الاسم الكامل</div><div class="iv">الفاري بن نصر الخصيبي</div></div></div>
+    <div class="irow"><span class="ic">🎭</span><div><div class="il">التخصص</div><div class="iv">تصميم وإخراج مواقع الويب</div></div></div>
+    <div class="irow"><span class="ic">🏫</span><div><div class="il">المدرسة</div><div class="iv">مدرسة سالم بن الصايغي (9-12)</div></div></div>
+    <div class="irow"><span class="ic">📍</span><div><div class="il">الموقع</div><div class="iv">المعبيلة الجنوبية، مسقط — عمان</div></div></div>
+    <div class="irow"><span class="ic">📚</span><div><div class="il">الفصل الدراسي</div><div class="iv">الحادي عشر — الفصل الثاني 2026</div></div></div>
+    <div class="irow"><span class="ic">👨‍🏫</span><div><div class="il">إشراف الأستاذ</div><div class="iv">استلذ منير</div></div></div>
+    <div class="irow"><span class="ic">💡</span><div><div class="il">الاهتمامات</div><div class="iv">تطوير الويب، التصميم، البرمجة</div></div></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="fi">
+  <span class="tag">// ما أتقنه</span>
+  <div class="stitle">المهارات التقنية</div>
+  <div class="dl"></div>
+  <p class="sdesc">المهارات التقنية التي طورتها خلال مسيرتي الدراسية والمشاريع العملية.</p>
+  <div class="sgrid">
+    <div class="sc fi"><span class="si">🌐</span><div class="sn2">HTML5</div><div class="sd">بناء هيكل صفحات الويب باستخدام وسوم HTML الأساسية والمتقدمة.</div><div class="sp">85%</div><div class="sbg"><div class="sb" style="width:85%"></div></div></div>
+    <div class="sc fi"><span class="si">🎨</span><div class="sn2">CSS3</div><div class="sd">تنسيق وتصميم صفحات الويب مع الرسوم المتحركة والتصميم المتجاوب.</div><div class="sp">80%</div><div class="sbg"><div class="sb" style="width:80%"></div></div></div>
+    <div class="sc fi"><span class="si">⚡</span><div class="sn2">JavaScript</div><div class="sd">إضافة التفاعلية والحيوية لصفحات الويب باستخدام JS الأساسية.</div><div class="sp">65%</div><div class="sbg"><div class="sb" style="width:65%"></div></div></div>
+    <div class="sc fi"><span class="si">🗄️</span><div class="sn2">قواعد البيانات</div><div class="sd">تصميم وإدارة قواعد البيانات وتخزين البيانات واسترجاعها.</div><div class="sp">70%</div><div class="sbg"><div class="sb" style="width:70%"></div></div></div>
+    <div class="sc fi"><span class="si">🖥️</span><div class="sn2">VS Code</div><div class="sd">استخدام محرر VS Code بكفاءة مع الإضافات والاختصارات المتقدمة.</div><div class="sp">90%</div><div class="sbg"><div class="sb" style="width:90%"></div></div></div>
+    <div class="sc fi"><span class="si">📊</span><div class="sn2">تحليل البيانات</div><div class="sd">جمع البيانات وتحليلها وعرضها بشكل مرئي باستخدام الأدوات المناسبة.</div><div class="sp">75%</div><div class="sbg"><div class="sb" style="width:75%"></div></div></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="fi">
+  <span class="tag">// أعمالي</span>
+  <div class="stitle">مشاريع الفصل الثاني</div>
+  <div class="dl"></div>
+  <p class="sdesc">المشاريع الستة التي أنجزتها خلال الفصل الدراسي الثاني 2026.</p>
+  <div class="pgrid">
+    <div class="pc fi">
+      <div class="pt" style="background:linear-gradient(135deg,#0a2a1a,#003d1a)">📊</div>
+      <div class="pb"><div class="ptag">المشروع الأول</div><div class="ptitle">تقديم عرض تقديمي</div><div class="pdesc">تصميم وتقديم عرض احترافي لموضوع تقني باستخدام برامج العروض التقديمية.</div><div class="techs"><span class="tech">PowerPoint</span><span class="tech">تصميم</span></div></div>
+    </div>
+    <div class="pc fi">
+      <div class="pt" style="background:linear-gradient(135deg,#1a1a0a,#3d3a00)">📅</div>
+      <div class="pb"><div class="ptag">المشروع الثاني</div><div class="ptitle">التخطيط لتنظيم حدث</div><div class="pdesc">إعداد خطة متكاملة لتنظيم حدث مدرسي باستخدام أدوات إدارة المشاريع.</div><div class="techs"><span class="tech">Excel</span><span class="tech">تخطيط</span></div></div>
+    </div>
+    <div class="pc fi">
+      <div class="pt" style="background:linear-gradient(135deg,#1a000a,#3d0020)">📰</div>
+      <div class="pb"><div class="ptag">المشروع الثالث</div><div class="ptitle">إعداد منشور دوري</div><div class="pdesc">تصميم نشرة إخبارية مدرسية احترافية باستخدام برامج النشر المكتبي.</div><div class="techs"><span class="tech">Publisher</span><span class="tech">تصميم</span></div></div>
+    </div>
+    <div class="pc fi">
+      <div class="pt" style="background:linear-gradient(135deg,#0a001a,#1a003d)">📝</div>
+      <div class="pb"><div class="ptag">المشروع الرابع</div><div class="ptitle">إنشاء مدونة</div><div class="pdesc">تصميم وبناء مدونة نشرة إخبارية مدرسية كاملة باستخدام HTML وCSS.</div><div class="techs"><span class="tech">HTML</span><span class="tech">CSS</span><span class="tech">JS</span></div></div>
+    </div>
+    <div class="pc fi">
+      <div class="pt" style="background:linear-gradient(135deg,#001a1a,#003d3d)">🗃️</div>
+      <div class="pb"><div class="ptag">المشروع الخامس</div><div class="ptitle">إنشاء قاعدة بيانات</div><div class="pdesc">تصميم قاعدة بيانات منظمة لإدارة البيانات بكفاءة عالية.</div><div class="techs"><span class="tech">Access</span><span class="tech">SQL</span></div></div>
+    </div>
+    <div class="pc fi" style="border-color:rgba(0,230,118,0.5)">
+      <div class="pt" style="background:linear-gradient(135deg,#002a10,#00c853)">💼</div>
+      <div class="pb"><div class="ptag" style="color:#69f0ae">المشروع السادس ✦ الحالي</div><div class="ptitle">تصميم ملف أعمال</div><div class="pdesc">بناء موقع ويب شخصي يعرض المهارات والمشاريع والإنجازات باستخدام HTML وCSS وJS.</div><div class="techs"><span class="tech">HTML</span><span class="tech">CSS</span><span class="tech">JS</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="fi">
+  <span class="tag">// تواصل معي</span>
+  <div class="stitle">ابقَ على تواصل</div>
+  <div class="dl"></div>
+  <div class="clist">
+    <div class="cc"><span class="cci">🏫</span><div><h4>المدرسة</h4><p>مدرسة سالم الصايغي (11-12) — المعبيلة الجنوبية، مسقط</p></div></div>
+    <div class="cc"><span class="cci">📞</span><div><h4>الهاتف</h4><p>24583000+968</p></div></div>
+    <div class="cc"><span class="cci">📸</span><div><h4>انستاقرام</h4><a href="https://instagram.com/edugovmct1538" target="_blank">@edugovmct1538</a></div></div>
+    <div class="cc"><span class="cci">🐦</span><div><h4>تويتر / X</h4><a href="https://twitter.com/edugovmct1538" target="_blank">@edugovmct1538</a></div></div>
+    <div class="cc"><span class="cci">📍</span><div><h4>الموقع</h4><p>سلطنة عمان — مسقط</p></div></div>
+  </div>
+  <div class="cform">
+    <h3>أرسل رسالة</h3>
+    <div class="fg"><label>الاسم</label><input type="text" id="fn" placeholder="اكتب اسمك..."/></div>
+    <div class="fg"><label>البريد الإلكتروني</label><input type="email" id="fe" placeholder="example@email.com"/></div>
+    <div class="fg"><label>الموضوع</label><input type="text" id="fs" placeholder="موضوع رسالتك..."/></div>
+    <div class="fg"><label>الرسالة</label><textarea id="fm" placeholder="اكتب رسالتك هنا..."></textarea></div>
+    <button class="bp" onclick="send()" style="width:100%">إرسال الرسالة ✉️</button>
+    <div class="fsuc" id="fsuc">✅ شكراً! تم استلام رسالتك بنجاح.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="flogo">الفارس  الخصيبي — ملف أعمال 2026</div>
+  <p>© 2026 — مدرسة سالم الصايغي<br>اشراف استاذ منير   </p>
+  <div class="socs">
+    <a href="https://instagram.com/edugovmct1538" target="_blank">📸</a>
+    <a href="https://twitter.com/edugovmct1538" target="_blank">🐦</a>
+    <a href="#">💻</a>
+  </div>
+</footer>
+
+<script>
+// Scroll animation
+const ob = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('on');});},{threshold:0.05});
+document.querySelectorAll('.fi').forEach(el=>ob.observe(el));
+
+// Active nav
+const ss=document.querySelectorAll('section[id]');
+const ls=document.querySelectorAll('.nlinks a');
+window.addEventListener('scroll',()=>{
+  let c='';
+  ss.forEach(s=>{if(window.scrollY>=s.offsetTop-70)c=s.id;});
+  ls.forEach(a=>{a.classList.toggle('on',a.getAttribute('href')==='#'+c);});
+});
+
+// Form
+function send(){
+  const n=document.getElementById('fn').value;
+  const m=document.getElementById('fm').value;
+  if(!n||!m){alert('يرجى تعبئة الاسم والرسالة');return;}
+  document.getElementById('fsuc').style.display='block';
+  ['fn','fe','fs','fm'].forEach(id=>document.getElementById(id).value='');
+}
+</script>
+</body>
+</html>
